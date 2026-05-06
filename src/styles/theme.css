@@ -178,4 +178,51 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
+
+  /* Acessibilidade para sistema de saúde */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Foco visível para navegação por teclado */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid #0077B6;
+    outline-offset: 2px;
+  }
+
+  /* Melhor contraste para links */
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  /* Botões maiores para facilitar o toque */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Input fields com melhor contraste */
+  input,
+  select,
+  textarea {
+    border: 2px solid #DEE2E6;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #0077B6;
+  }
+
+  /* Melhor espaçamento para legibilidade */
+  p {
+    line-height: 1.6;
+  }
 }

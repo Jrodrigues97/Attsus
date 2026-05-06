@@ -2,48 +2,115 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Header } from './Header';
 import { MenuLateral } from './MenuLateral';
-import { Menu } from 'lucide-react';
+import {
+  Bars3Icon,
+  UserIcon,
+  DocumentTextIcon,
+  BeakerIcon,
+  ShieldCheckIcon,
+  ClipboardDocumentListIcon,
+  HeartIcon,
+  PhoneIcon,
+  ClipboardDocumentCheckIcon
+} from '@heroicons/react/24/outline';
 
 export function Caderneta() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('INICIO');
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const tabs = ['INICIO', 'VACINAS', 'EXAMES', 'AGENDAMENTOS', 'MEDICAMENTOS', 'CARTILHA'];
+  const tabs = ['INÍCIO', 'VACINAS', 'EXAMES', 'AGENDAMENTOS', 'MEDICAMENTOS', 'CARTILHA'];
 
   const cards = [
-    { titulo: 'Informações Pessoais', conteudo: 'Nome completo, data de nascimento, CPF...', link: '/dados-gerais' },
-    { titulo: 'Histórico Médico', conteudo: 'Condições crônicas, alergias, cirurgias...', link: '/formularios' },
-    { titulo: 'Medicamentos', conteudo: 'Lista de medicamentos em uso...', link: '/medicacao-paciente' },
-    { titulo: 'Vacinas', conteudo: 'Registro de vacinação completo...', link: '/formularios' },
-    { titulo: 'Exames', conteudo: 'Resultados de exames recentes...', link: '/formularios' },
-    { titulo: 'Consultas', conteudo: 'Histórico de consultas médicas...', link: '/meus-agendamentos' },
-    { titulo: 'Procedimentos', conteudo: 'Procedimentos realizados...', link: '/formularios' },
-    { titulo: 'Observações', conteudo: 'Anotações importantes...', link: '/formularios' },
-    { titulo: 'Contatos Emergência', conteudo: 'Contatos em caso de emergência...', link: '/dados-gerais' }
+    {
+      titulo: 'Informações Pessoais',
+      conteudo: 'Dados cadastrais e documentos',
+      link: '/dados-gerais',
+      icon: UserIcon,
+      color: 'from-blue-500 to-blue-600'
+    },
+    {
+      titulo: 'Histórico Médico',
+      conteudo: 'Condições crônicas e alergias',
+      link: '/formularios',
+      icon: DocumentTextIcon,
+      color: 'from-purple-500 to-purple-600'
+    },
+    {
+      titulo: 'Medicamentos',
+      conteudo: 'Lista de medicamentos em uso',
+      link: '/medicacao-paciente',
+      icon: HeartIcon,
+      color: 'from-red-500 to-red-600'
+    },
+    {
+      titulo: 'Vacinas',
+      conteudo: 'Carteira de vacinação',
+      link: '/formularios',
+      icon: ShieldCheckIcon,
+      color: 'from-green-500 to-green-600'
+    },
+    {
+      titulo: 'Exames',
+      conteudo: 'Resultados de exames',
+      link: '/formularios',
+      icon: BeakerIcon,
+      color: 'from-pink-500 to-pink-600'
+    },
+    {
+      titulo: 'Consultas',
+      conteudo: 'Histórico de atendimentos',
+      link: '/meus-agendamentos',
+      icon: ClipboardDocumentListIcon,
+      color: 'from-indigo-500 to-indigo-600'
+    },
+    {
+      titulo: 'Procedimentos',
+      conteudo: 'Cirurgias e procedimentos',
+      link: '/formularios',
+      icon: ClipboardDocumentCheckIcon,
+      color: 'from-orange-500 to-orange-600'
+    },
+    {
+      titulo: 'Observações',
+      conteudo: 'Anotações importantes',
+      link: '/formularios',
+      icon: DocumentTextIcon,
+      color: 'from-teal-500 to-teal-600'
+    },
+    {
+      titulo: 'Contatos de Emergência',
+      conteudo: 'Pessoas para contato',
+      link: '/dados-gerais',
+      icon: PhoneIcon,
+      color: 'from-yellow-500 to-yellow-600'
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-[#5B9BD5] flex flex-col">
-      <div className="bg-[#5B9BD5] text-white p-4 flex items-center justify-between">
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="p-2 hover:bg-[#4A8AC4] rounded"
-        >
-          <Menu size={24} />
-        </button>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex flex-col">
+      <div className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white p-6 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="p-3 hover:bg-white/10 rounded-lg transition-colors"
+            aria-label="Menu"
+          >
+            <Bars3Icon className="w-6 h-6" />
+          </button>
 
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col items-end text-xs leading-tight">
-            <span className="font-bold">SUS</span>
-            <span className="font-bold">DIGITAL</span>
+          <h1 className="text-base md:text-xl font-bold text-center flex-1 px-4">
+            Caderneta de Saúde
+          </h1>
+
+          <div className="flex items-center gap-3">
+            <HeartIcon className="w-8 h-8 text-red-400 animate-pulse" />
+            <div className="text-right">
+              <div className="text-xs font-medium">SUS</div>
+              <div className="text-xs font-bold">Digital</div>
+            </div>
           </div>
-          <div className="w-8 h-8 bg-gradient-to-br from-[#E84C8E] to-[#5B9BD5] rounded"></div>
         </div>
-
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-sm font-medium">
-          CADERNETA DO ADULTO ADOLESCENTE
-        </h1>
       </div>
 
       <MenuLateral
@@ -55,47 +122,71 @@ export function Caderneta() {
         }}
       />
 
-      <div className="bg-white border-b">
-        <div className="flex gap-2 px-4 overflow-x-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`
-                px-4 py-2 text-sm font-medium whitespace-nowrap
-                ${activeTab === tab
-                  ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-600 hover:text-gray-800'
-                }
-              `}
-            >
-              {tab}
-            </button>
-          ))}
+      <div className="bg-white shadow-md sticky top-0 z-10">
+        <div className="max-w-7xl mx-auto overflow-x-auto">
+          <div className="flex gap-1 px-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`
+                  px-6 py-4 text-sm font-semibold whitespace-nowrap transition-all
+                  ${activeTab === tab
+                    ? 'border-b-4 border-blue-600 text-blue-600 bg-blue-50'
+                    : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                  }
+                `}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="flex-1 p-6 overflow-y-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          {cards.map((card, index) => (
-            <div
-              key={index}
-              onClick={() => navigate(card.link)}
-              className="bg-[#8FB885] rounded-lg p-6 text-white shadow-md hover:bg-[#7FA775] transition-colors cursor-pointer min-h-[150px] flex flex-col"
-            >
-              <h3 className="font-semibold text-base mb-2">{card.titulo}</h3>
-              <p className="text-sm opacity-90">{card.conteudo}</p>
-            </div>
-          ))}
+      <div className="flex-1 p-6 md:p-10 overflow-y-auto">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Suas Informações de Saúde</h2>
+            <p className="text-gray-600">Acesse e gerencie seu histórico médico</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={index}
+                  onClick={() => navigate(card.link)}
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-1"
+                >
+                  <div className={`w-16 h-16 bg-gradient-to-br ${card.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">{card.titulo}</h3>
+                  <p className="text-gray-600 text-sm">{card.conteudo}</p>
+                  <div className="mt-4 text-blue-600 text-sm font-medium group-hover:translate-x-2 transition-transform inline-block">
+                    Acessar →
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      <div className="p-4 flex justify-end">
+      <div className="p-6 flex justify-between items-center max-w-7xl mx-auto w-full">
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium border-2 border-gray-300 shadow-sm"
+        >
+          ← Voltar
+        </button>
         <button
           onClick={() => navigate('/postos')}
-          className="bg-white text-gray-700 px-6 py-2 rounded hover:bg-gray-100 transition-colors"
+          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-colors font-medium shadow-md"
         >
-          Próximo &gt;
+          Ver Postos de Saúde →
         </button>
       </div>
     </div>
