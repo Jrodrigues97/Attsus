@@ -1,154 +1,225 @@
 import { useNavigate } from 'react-router';
+import {
+  HeartIcon,
+  ClipboardDocumentCheckIcon,
+  BeakerIcon,
+  ShieldCheckIcon,
+  CheckCircleIcon,
+  XCircleIcon
+} from '@heroicons/react/24/outline';
 
 export function Formularios() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#2E5C8A] flex flex-col">
-      <div className="bg-[#5B9BD5] text-white p-4 flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col items-start text-xs leading-tight">
-            <span className="font-bold">SUS</span>
-            <span className="font-bold">DIGITAL</span>
-          </div>
-          <div className="w-8 h-8 bg-gradient-to-br from-[#E84C8E] to-[#5B9BD5] rounded"></div>
-        </div>
-        <h1 className="text-sm font-medium ml-4">CRIANDO UM NOVO PERFIL DO PACIENTE</h1>
-      </div>
-
-      <div className="flex-1 p-6 overflow-y-auto">
-        <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-6">
-          {/* Formulário 1 - Resultado Consulta */}
-          <div className="bg-white rounded-lg p-6">
-            <h3 className="font-semibold mb-4 pb-2 border-b">Resultado da Consulta</h3>
-            <div className="space-y-3">
-              <input
-                type="text"
-                placeholder="Resultado da consulta (ex: DM2, HAS)"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <textarea
-                placeholder="Observações"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm h-20"
-              />
-            </div>
-          </div>
-
-          {/* Formulário 2 - Formulário de Cadastro */}
-          <div className="bg-white rounded-lg p-6">
-            <h3 className="font-semibold mb-4 pb-2 border-b">Formulário de Cadastro</h3>
-            <div className="space-y-3">
-              <input
-                type="text"
-                placeholder="Consultas - Clínica Geral (77)"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Data da consulta (ex: 29/04/2024 - 14h15)"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Local"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-            </div>
-          </div>
-
-          {/* Formulário 3 - Resultado Exames */}
-          <div className="bg-white rounded-lg p-6">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
-                ✓
-              </div>
-              <div>
-                <h3 className="font-semibold">Resultado de Exames</h3>
-                <p className="text-xs text-gray-600 mt-1">
-                  Glicemia: 95 mg/dL | Colesterol: 180 mg/dL
-                  HbA1c: 5.8% | Triglicerídeos: 120 mg/dL
-                </p>
-              </div>
-            </div>
-            <div className="bg-gray-50 p-3 rounded text-xs">
-              <p className="font-semibold mb-1">Observações:</p>
-              <p className="text-gray-700">Resultados dentro dos parâmetros normais</p>
-            </div>
-          </div>
-
-          {/* Formulário 4 - Resultado de Vacinas */}
-          <div className="bg-white rounded-lg p-6">
-            <div className="flex items-start gap-3 mb-4">
-              <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white text-xl font-bold">
-                ✗
-              </div>
-              <div>
-                <h3 className="font-semibold">Resultado de Vacinas</h3>
-                <p className="text-xs text-gray-600 mt-1">Carteira de vacinação</p>
-              </div>
-            </div>
-            <div className="bg-gray-50 p-3 rounded text-xs space-y-1">
-              <p>Data: 22/03/2024</p>
-              <p>Vacina: COVID-19 (3ª dose)</p>
-            </div>
-          </div>
-
-          {/* Formulário 5 - Dados Pessoais */}
-          <div className="bg-white rounded-lg p-6 md:col-span-2">
-            <h3 className="font-semibold mb-4">Dados Pessoais</h3>
-            <div className="grid md:grid-cols-2 gap-3">
-              <input
-                type="text"
-                placeholder="Nome completo"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="CPF"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="RG"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Data de nascimento"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Telefone"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="email"
-                placeholder="E-mail"
-                className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-              />
-              <input
-                type="text"
-                placeholder="Endereço completo"
-                className="w-full md:col-span-2 border border-gray-300 rounded px-3 py-2 text-sm"
-              />
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex flex-col">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white p-6 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="w-24"></div>
+          <h1 className="text-lg md:text-xl font-bold text-center flex-1">
+            Formulários do Paciente
+          </h1>
+          <div className="flex items-center gap-4">
+            <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
+            <div className="text-right">
+              <div className="text-sm font-bold">SUS</div>
+              <div className="text-sm font-bold">Digital</div>
             </div>
           </div>
         </div>
+      </header>
+
+      <div className="flex-1 p-6 md:p-10 overflow-y-auto">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              Registros Médicos
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Histórico completo de consultas, exames e vacinas
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Resultado da Consulta */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4">
+                <div className="flex items-center gap-3 text-white">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <ClipboardDocumentCheckIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-lg">Resultado da Consulta</h3>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <input
+                  type="text"
+                  placeholder="Diagnóstico (ex: DM2, HAS)"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                />
+                <textarea
+                  placeholder="Observações e recomendações..."
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm h-24 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
+                />
+              </div>
+            </div>
+
+            {/* Formulário de Cadastro */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-4">
+                <div className="flex items-center gap-3 text-white">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <ClipboardDocumentCheckIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-lg">Dados da Consulta</h3>
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4">
+                <input
+                  type="text"
+                  placeholder="Tipo de consulta"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="Data e horário"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="Local do atendimento"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200 outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            {/* Resultado de Exames */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all">
+              <div className="bg-gradient-to-r from-green-600 to-green-700 p-4">
+                <div className="flex items-center gap-3 text-white">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <BeakerIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-lg">Resultado de Exames</h3>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCircleIcon className="w-10 h-10 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-2">Resultados</p>
+                    <div className="space-y-1 text-sm">
+                      <p className="text-gray-700"><strong>Glicemia:</strong> 95 mg/dL</p>
+                      <p className="text-gray-700"><strong>Colesterol:</strong> 180 mg/dL</p>
+                      <p className="text-gray-700"><strong>HbA1c:</strong> 5.8%</p>
+                      <p className="text-gray-700"><strong>Triglicerídeos:</strong> 120 mg/dL</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-green-50 p-4 rounded-xl border-l-4 border-green-600">
+                  <p className="text-xs font-semibold text-gray-700 mb-1">Observações:</p>
+                  <p className="text-sm text-gray-600">Resultados dentro dos parâmetros normais</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Resultado de Vacinas */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all">
+              <div className="bg-gradient-to-r from-red-600 to-red-700 p-4">
+                <div className="flex items-center gap-3 text-white">
+                  <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <ShieldCheckIcon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-lg">Carteira de Vacinação</h3>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <ShieldCheckIcon className="w-10 h-10 text-red-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-600 font-medium mb-2">Última Vacinação</p>
+                    <p className="text-sm font-bold text-gray-800">COVID-19 (3ª dose)</p>
+                    <p className="text-sm text-gray-600">Data: 22/03/2024</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-600">
+                  <p className="text-xs font-semibold text-gray-700 mb-1">Próximas Vacinas:</p>
+                  <p className="text-sm text-gray-600">Influenza - Previsão: Abril/2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Formulário de Dados Pessoais */}
+          <div className="mt-8 bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-r from-orange-600 to-orange-700 p-6">
+              <h3 className="text-2xl font-bold text-white">Cadastro Completo do Paciente</h3>
+            </div>
+
+            <div className="p-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  placeholder="Nome completo"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="CPF"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="RG"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="Data de nascimento"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="tel"
+                  placeholder="Telefone"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+                <input
+                  type="text"
+                  placeholder="Endereço completo"
+                  className="w-full md:col-span-2 border-2 border-gray-200 rounded-xl px-4 py-3 text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none transition-all"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="p-4 flex justify-between">
+      <div className="p-6 flex justify-between items-center max-w-7xl mx-auto w-full">
         <button
           onClick={() => navigate(-1)}
-          className="bg-white text-gray-700 px-6 py-2 rounded hover:bg-gray-100 transition-colors"
+          className="bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium border-2 border-gray-300 shadow-sm"
         >
-          &lt; Voltar
+          ← Voltar
         </button>
         <button
           onClick={() => navigate('/')}
-          className="bg-white text-gray-700 px-6 py-2 rounded hover:bg-gray-100 transition-colors"
+          className="bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-colors font-medium shadow-md"
         >
-          Próximo &gt;
+          Salvar e Voltar ao Início
         </button>
       </div>
     </div>

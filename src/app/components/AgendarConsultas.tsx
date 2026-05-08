@@ -68,14 +68,6 @@ export function AgendarConsultas() {
         </div>
       </div>
 
-      <div className="p-6 flex justify-between items-center max-w-4xl mx-auto w-full">
-        <button className="bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium border-2 border-gray-300 shadow-sm">
-          ← Voltar
-        </button>
-        <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-colors font-medium shadow-md">
-          Próximo →
-        </button>
-      </div>
     </div>
   );
 }

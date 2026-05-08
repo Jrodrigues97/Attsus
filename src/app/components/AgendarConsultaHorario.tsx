@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { HeartIcon, CalendarDaysIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function AgendarConsultaHorario() {
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState({ mes: '', dia: '', ano: '' });
   const [selectedTime, setSelectedTime] = useState('');
 
   const horarios = [
@@ -12,52 +13,102 @@ export function AgendarConsultaHorario() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0D5A8F] flex flex-col">
-      <div className="bg-[#0D5A8F] text-white p-6 flex items-center gap-3">
-        <div className="grid grid-cols-2 gap-1 w-12 h-12">
-          <div className="bg-red-500 rounded-sm"></div>
-          <div className="bg-yellow-500 rounded-sm"></div>
-          <div className="bg-green-500 rounded-sm"></div>
-          <div className="bg-blue-400 rounded-sm"></div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex flex-col">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white p-6 shadow-lg">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="w-24"></div>
+          <h1 className="text-lg md:text-xl font-bold text-center flex-1">
+            Agendar Consulta
+          </h1>
+          <div className="flex items-center gap-4">
+            <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
+            <div className="text-right">
+              <div className="text-sm font-bold">SUS</div>
+              <div className="text-sm font-bold">Digital</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h1 className="text-2xl font-bold">Meu</h1>
-          <h1 className="text-2xl font-bold">SUS</h1>
-          <h1 className="text-2xl font-bold">Digital</h1>
-        </div>
-      </div>
+      </header>
 
-      <div className="flex-1 p-6 flex items-center justify-center">
-        <div className="w-full max-w-md">
-          <h2 className="text-white text-center text-lg mb-6">Agendar consulta</h2>
+      <div className="flex-1 p-6 md:p-10 flex items-center justify-center">
+        <div className="w-full max-w-2xl space-y-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              Escolha Data e Horário
+            </h2>
+            <p className="text-gray-600">
+              Selecione o melhor momento para sua consulta
+            </p>
+          </div>
 
-          <div className="bg-white rounded-lg p-6 mb-6">
-            <label className="block text-sm font-semibold mb-2">Escolher a data</label>
-            <div className="flex gap-2 mb-4">
-              {['Mês', 'Dia', 'Dia', 'Ano', 'Ano'].map((label, i) => (
+          {/* Seletor de Data */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <CalendarDaysIcon className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800">Escolher a Data</h3>
+            </div>
+
+            <div className="grid grid-cols-5 gap-3">
+              <div className="col-span-1">
+                <label className="block text-xs font-semibold text-gray-600 mb-2">Dia</label>
                 <input
-                  key={i}
                   type="text"
-                  placeholder={label}
-                  className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm text-center"
-                  maxLength={label.includes('Ano') ? 2 : 2}
+                  placeholder="15"
+                  value={selectedDate.dia}
+                  onChange={(e) => setSelectedDate({...selectedDate, dia: e.target.value})}
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-center text-lg font-semibold focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  maxLength={2}
                 />
-              ))}
+              </div>
+              <div className="col-span-1">
+                <label className="block text-xs font-semibold text-gray-600 mb-2">Mês</label>
+                <input
+                  type="text"
+                  placeholder="05"
+                  value={selectedDate.mes}
+                  onChange={(e) => setSelectedDate({...selectedDate, mes: e.target.value})}
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-center text-lg font-semibold focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  maxLength={2}
+                />
+              </div>
+              <div className="col-span-3">
+                <label className="block text-xs font-semibold text-gray-600 mb-2">Ano</label>
+                <select
+                  value={selectedDate.ano}
+                  onChange={(e) => setSelectedDate({...selectedDate, ano: e.target.value})}
+                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-center text-lg font-semibold focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white"
+                >
+                  <option value="">Selecione</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                  <option value="2027">2027</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-6">
-            <h3 className="font-semibold mb-4 text-center">Horários disponíveis</h3>
-            <div className="grid grid-cols-5 gap-2">
+          {/* Horários Disponíveis */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <ClockIcon className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800">Horários Disponíveis</h3>
+            </div>
+
+            <div className="grid grid-cols-5 gap-3">
               {horarios.map((horario) => (
                 <button
                   key={horario}
                   onClick={() => setSelectedTime(horario)}
                   className={`
-                    px-3 py-2 rounded text-sm font-medium transition-colors
+                    px-4 py-4 rounded-xl text-sm font-bold transition-all
                     ${selectedTime === horario
-                      ? 'bg-[#0D5A8F] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-gradient-to-br from-green-600 to-green-700 text-white shadow-lg scale-105'
+                      : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:border-green-300 border-2 border-transparent'
                     }
                   `}
                 >
@@ -66,19 +117,33 @@ export function AgendarConsultaHorario() {
               ))}
             </div>
           </div>
+
+          {selectedTime && (
+            <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-xl p-6 text-white text-center animate-in fade-in">
+              <p className="text-sm font-medium mb-2">Horário Selecionado</p>
+              <p className="text-3xl font-bold">{selectedTime}</p>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="p-4 flex justify-between">
+      <div className="p-6 flex justify-between items-center max-w-2xl mx-auto w-full">
         <button
           onClick={() => navigate(-1)}
-          className="bg-white text-gray-700 px-6 py-2 rounded hover:bg-gray-100 transition-colors"
+          className="bg-white text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium border-2 border-gray-300 shadow-sm"
         >
-          &lt; Voltar
+          ← Voltar
         </button>
         <button
           onClick={() => navigate('/formularios')}
-          className="bg-white text-gray-700 px-6 py-2 rounded hover:bg-gray-100 transition-colors"
+          disabled={!selectedTime || !selectedDate.mes || !selectedDate.dia || !selectedDate.ano}
+          className={`
+            px-8 py-3 rounded-lg font-medium shadow-lg transition-all
+            ${(selectedTime && selectedDate.mes && selectedDate.dia && selectedDate.ano)
+              ? 'bg-gradient-to-r from-green-600 to-green-700 text-white hover:from-green-700 hover:to-green-800'
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            }
+          `}
         >
           Confirmar
         </button>

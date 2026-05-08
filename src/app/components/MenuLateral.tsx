@@ -4,9 +4,10 @@ import {
   ShieldCheckIcon,
   BeakerIcon,
   CalendarDaysIcon,
-  HeartIcon,
-  BookOpenIcon
+  BookOpenIcon,
+  HeartIcon as HeartOutline
 } from '@heroicons/react/24/outline';
+import { HeartIcon } from '@heroicons/react/24/solid';
 
 interface MenuLateralProps {
   isOpen: boolean;
@@ -20,7 +21,7 @@ export function MenuLateral({ isOpen, onClose, onNavigate }: MenuLateralProps) {
     { label: 'Vacinas', icon: ShieldCheckIcon, onClick: () => onNavigate('/caderneta') },
     { label: 'Exames', icon: BeakerIcon, onClick: () => onNavigate('/caderneta') },
     { label: 'Agendamentos', icon: CalendarDaysIcon, onClick: () => onNavigate('/meus-agendamentos') },
-    { label: 'Medicamentos', icon: HeartIcon, onClick: () => onNavigate('/medicacao-paciente') },
+    { label: 'Medicamentos', icon: HeartOutline, onClick: () => onNavigate('/medicacao-paciente') },
     { label: 'Cartilha', icon: BookOpenIcon, onClick: () => onNavigate('/caderneta') }
   ];
 
@@ -35,13 +36,11 @@ export function MenuLateral({ isOpen, onClose, onNavigate }: MenuLateralProps) {
       <div className="fixed left-0 top-0 h-full w-80 bg-gradient-to-b from-[#0077B6] to-[#023E8A] z-50 shadow-2xl transform transition-transform">
         <div className="p-6">
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <HeartIcon className="w-7 h-7 text-red-400" />
-              </div>
+            <div className="flex items-center gap-4">
+              <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
               <div className="text-white">
-                <div className="text-sm font-medium">SUS</div>
-                <div className="text-lg font-bold">Digital</div>
+                <div className="text-sm font-bold">SUS</div>
+                <div className="text-sm font-bold">Digital</div>
               </div>
             </div>
             <button

@@ -103,11 +103,11 @@ export function Caderneta() {
             Caderneta de Saúde
           </h1>
 
-          <div className="flex items-center gap-3">
-            <HeartIcon className="w-8 h-8 text-red-400 animate-pulse" />
+          <div className="flex items-center gap-4">
+            <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
             <div className="text-right">
-              <div className="text-xs font-medium">SUS</div>
-              <div className="text-xs font-bold">Digital</div>
+              <div className="text-sm font-bold">SUS</div>
+              <div className="text-sm font-bold">Digital</div>
             </div>
           </div>
         </div>
