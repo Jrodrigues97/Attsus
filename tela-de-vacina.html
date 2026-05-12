@@ -1,0 +1,76 @@
+<!-- TELA: DETALHE DA ÁREA DE VACINAÇÃO -->
+<link rel="stylesheet" href="tela-de-vacina.css">
+<section id="area-vacina" class="page active">
+    <div class="header-section">
+        <button class="btn-back" onclick="showPage('home')"><i data-lucide="arrow-left"></i> Voltar</button>
+        <h2>Minhas Vacinas</h2>
+    </div>
+    <link rel="stylesheet" href="tela-de-vacina.css">
+
+    <!-- Card de Status Geral -->
+    <div class="vaccine-status-card">
+        <div class="status-info">
+            <span>Esquema Vacinal</span>
+            <strong>85% Concluído</strong>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 85%;"></div>
+        </div>
+        <p class="status-note">Faltam apenas 2 doses para sua imunização completa.</p>
+    </div>
+
+    <!-- Filtros Minimalistas -->
+    <div class="filter-chips">
+        <button class="chip active">Todas</button>
+        <button class="chip">Pendentes</button>
+        <button class="chip">Anuais</button>
+    </div>
+
+    <!-- Lista de Vacinas Detalhada -->
+    <div class="timeline">
+        <!-- Vacina 1 -->
+        <div class="timeline-item completed">
+            <div class="marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h4>Influenza (Gripe)</h4>
+                    <span class="badge">Dose Única</span>
+                </div>
+                <p>Aplicada em: <strong>15 Mar 2026</strong></p>
+                <p class="location"><i data-lucide="map-pin"></i> UBS Central - São Paulo</p>
+                <div class="timeline-footer">
+                    <span>Lote: 230045SP</span>
+                    <button class="link-btn"><i data-lucide="download-cloud"></i> Certificado</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vacina 2 -->
+        <div class="timeline-item next">
+            <div class="marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h4>Dengue (QDenga)</h4>
+                    <span class="badge warning">2ª Dose Pendente</span>
+                </div>
+                <p>Previsão: <strong>20 Jun 2026</strong></p>
+                <div class="action-row">
+                    <button class="btn-outline-sm">Lembrar-me</button>
+                    <button class="btn-primary-sm">Agendar Agora</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vacina 3 -->
+        <div class="timeline-item history">
+            <div class="marker"></div>
+            <div class="timeline-content">
+                <div class="timeline-header">
+                    <h4>Hepatite B</h4>
+                    <span class="badge gray">Esquema Completo</span>
+                </div>
+                <p>Concluído em: <strong>10 Out 2024</strong></p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,123 @@
+
+.boby{
+
+background-color: #0650c0;
+
+}
+/* Header de Seção */
+.header-section { display: flex;
+     align-items: center;
+      gap: 15px;
+       margin-bottom: 20px; 
+    }
+.btn-back { 
+    background: none;
+     border: none;
+      cursor: pointer; 
+      color: var(--primary);
+       padding: 5px;
+     }
+
+/* Card de Status */
+.vaccine-status-card {
+    background: linear-gradient(135deg,
+     #174385 0%,
+      #0044AA 100%);
+
+    color: white;
+     padding: 20px;
+      border-radius: 20px;
+       margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+}
+.status-info {
+     display: flex; 
+     justify-content: space-between;
+      align-items: flex-end;
+       margin-bottom: 12px; }
+.status-info strong { 
+    font-size: 1.4rem;
+ }
+.progress-bar {
+     background: rgba(255,255,255,0.2);
+      height: 8px;
+       border-radius: 4px; 
+       overflow: hidden; }
+.progress-fill { background: #fff;
+     height: 100%;
+      border-radius: 4px; }
+.status-note { font-size: 0.8rem; 
+    margin-top: 10px;
+     opacity: 0.9; }
+
+/* Filtros (Chips) */
+.filter-chips {
+     display: flex; 
+     gap: 10px; 
+     margin-bottom: 25px;
+      overflow-x: auto; 
+      padding-bottom: 5px; }
+.chip { 
+    padding: 8px 18px;
+     border-radius: 20px;
+      border: 1px solid var(--border);
+    background: rgb(75, 18, 233);
+     white-space: nowrap; 
+     font-size: 0.85rem;
+      cursor: pointer;
+}
+.chip.active { 
+    background: var(--primary); 
+    color: rgb(1, 8, 12);
+     border-color: var(--primary);
+ }
+
+/* Timeline de Vacinas */
+.timeline {
+     position: relative;
+      padding-left: 20px; }
+.timeline::before { 
+    content: ''; 
+    position: absolute;
+     left: 4px;
+      top: 0; 
+      bottom: 0; 
+    width: 2px;
+     background: var(--border); 
+}
+
+.timeline-item {
+     position: relative;
+      margin-bottom: 30px;
+     }
+.marker { 
+    position: absolute; 
+    left: -20px;
+     top: 5px; 
+     width: 10px;
+      height: 10px; 
+    border-radius: 50%;
+     background: var(--border);
+      border: 2px solid white;
+       z-index: 1;
+}
+.completed .marker { background: var(--success); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); }
+.next .marker { background: var(--warning); }
+
+.timeline-content { background: #fff; border: 1px solid var(--border); padding: 15px; border-radius: 12px; margin-left: 10px; }
+.timeline-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.timeline-header h4 { margin: 0; font-size: 1rem; color: var(--text-main); }
+
+.badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 6px; background: #f0fdf4; color: var(--success); font-weight: 600; }
+.badge.warning { background: #fffbeb; color: var(--warning); }
+.badge.gray { background: #f3f4f6; color: #6b7280; }
+
+.timeline-content p { font-size: 0.85rem; margin: 5px 0; color: var(--text-sub); }
+.location { display: flex; align-items: center; gap: 4px; font-size: 0.8rem !important; }
+
+.timeline-footer { border-top: 1px dashed var(--border); margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
+.link-btn { background: none; border: none; color: var(--primary); font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+
+.action-row { display: flex; gap: 10px; margin-top: 12px; }
+.btn-primary-sm { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; }
+.btn-outline-sm { background: white; border: 1px solid var(--primary); color: var(--primary); padding: 8px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; }
