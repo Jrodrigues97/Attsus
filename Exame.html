@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<div class="grid-opcoes">
+  <button class="opcao-btn" onclick="goDetalhes('exames')">
+    <div class="opcao-icon bg-ic-purple">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5" />
+      </svg>
+    </div>
+    <span class="opcao-label">Exames</span>
+    <span class="opcao-sub">Clique para agendar</span>
+  </button>
+</div>
+
+<div class="screen" id="screen-detalhes" style="display:none;">
+  <header class="header">
+    <button onclick="showScreen('/')">Voltar</button>
+    <h1>Detalhes do Exame</h1>
+  </header>
+  <div class="content">
+    <div class="card">
+      <div id="detalhe-header" class="card-header-exame">
+        <h2 id="detalhe-titulo"></h2>
+        <p id="detalhe-descricao"></p>
+      </div>
+      <div id="detalhe-items" class="card-body">
+        </div>
+      <div class="footer-action">
+        <button class="btn-primary" onclick="showScreen('/agenda')">Agendar Agora</button>
+      </div>
+    </div>
+  </div>
+</div>
