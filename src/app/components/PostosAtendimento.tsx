@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router';
-import { HeartIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { Header } from './Header';
+import { MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 export function PostosAtendimento() {
   const navigate = useNavigate();
@@ -24,22 +25,7 @@ export function PostosAtendimento() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0D4A73] to-[#0077B6] flex flex-col">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white p-6 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="w-24"></div>
-          <h1 className="text-lg md:text-xl font-bold text-center flex-1">
-            Postos de Atendimento
-          </h1>
-          <div className="flex items-center gap-4">
-            <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
-            <div className="text-right">
-              <div className="text-sm font-bold">SUS</div>
-              <div className="text-sm font-bold">Digital</div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header title="Postos de Atendimento" />
 
       <div className="flex-1 p-6 md:p-10">
         <div className="max-w-6xl mx-auto">

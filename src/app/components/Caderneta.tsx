@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Header } from './Header';
-import { MenuLateral } from './MenuLateral';
 import {
-  Bars3Icon,
   UserIcon,
   DocumentTextIcon,
   BeakerIcon,
@@ -17,7 +15,6 @@ import {
 export function Caderneta() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('INICIO');
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const tabs = ['INÍCIO', 'VACINAS', 'EXAMES', 'AGENDAMENTOS', 'MEDICAMENTOS', 'CARTILHA'];
 
@@ -89,38 +86,7 @@ export function Caderneta() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex flex-col">
-      <div className="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white p-6 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="p-3 hover:bg-white/10 rounded-lg transition-colors"
-            aria-label="Menu"
-          >
-            <Bars3Icon className="w-6 h-6" />
-          </button>
-
-          <h1 className="text-base md:text-xl font-bold text-center flex-1 px-4">
-            Caderneta de Saúde
-          </h1>
-
-          <div className="flex items-center gap-4">
-            <HeartIcon className="w-12 h-12 text-red-400 animate-pulse" />
-            <div className="text-right">
-              <div className="text-sm font-bold">SUS</div>
-              <div className="text-sm font-bold">Digital</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <MenuLateral
-        isOpen={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        onNavigate={(path) => {
-          setMenuOpen(false);
-          navigate(path);
-        }}
-      />
+      <Header title="Caderneta de Saúde" />
 
       <div className="bg-white shadow-md sticky top-0 z-10">
         <div className="max-w-7xl mx-auto overflow-x-auto">

@@ -8,7 +8,7 @@ export function Sidebar() {
   const location = useLocation();
 
   const pages = [
-    { path: '/', label: 'Agendar Consultas', category: 'Agendamentos' },
+    { path: '/', label: 'Atendimento', category: 'Agendamentos' },
     { path: '/detalhes', label: 'Detalhes da Consulta', category: 'Agendamentos' },
     { path: '/confirmar-agendamento', label: 'Confirmar Agendamento', category: 'Agendamentos' },
     { path: '/agendamento-concluido', label: 'Agendamento Concluído', category: 'Agendamentos' },

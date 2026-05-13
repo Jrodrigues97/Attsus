@@ -39,7 +39,7 @@ export function AgendarConsultas() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 flex flex-col">
-      <Header title="Agendar Consultas" />
+      <Header title="Atendimento" />
 
       <div className="flex-1 p-6 md:p-10">
         <div className="max-w-4xl mx-auto">
